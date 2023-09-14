@@ -28,6 +28,8 @@ void	get_env(char **env, t_shell **shell)
 		str = ft_split(*env, '=');
 		a->key = ft_strdup(str[0]);
 		a->value = ft_strdup(str[1]);
+		// printf("%s", a->key);
+		// printf("=%s\n", a->value);
 		ft_lstadd_back(&(*shell)->env, ft_lstnew(a));
 		free_str(str);
 		env++; // bir sonraki satıra geçirir.

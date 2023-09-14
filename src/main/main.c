@@ -10,31 +10,35 @@ int	print_cmd(char *cmd)
 		printf("%c",cmd[i]);
 		i++;
 	}
-	printf("/n");
+	printf("\n");
 	return (0);
+}
+
+
+void	total_free()
+{
+	free_loop(0);  //sadece cmd yi freelemek için
+	free_(); // enviroment ve history yi freelemek için
+	free(g_shell->lex_list);
+	free(g_shell);
+	exit(1);
 }
 
 void	get_readline(void)
 {
 	g_shell->cmd = readline("minishell-$ ");
-/* 	if (!g_shell->cmd)
-	{
-		free_loop(0);
-		free_();
-		free(g_shell->lex_list);
-		free(g_shell);
-		exit(1);
-	} */
+	if (!g_shell->cmd)
+		total_free();
 	add_history(g_shell->cmd);
-	print_cmd(g_shell->cmd);
+	// print_cmd(g_shell->cmd);
 }
 
 int	main(int ac, char **av, char **env)
 {
-	//int		control;
+	int		control;
 
 	(void)av;
-	//control = 0;
+	control = 0;
 	if (ac != 1)
 		exit(printf("This program cannot accept any arguments\n"));
 	init_shell(&g_shell);
@@ -43,16 +47,27 @@ int	main(int ac, char **av, char **env)
 	while (1)
 	{
 		get_readline();
-/* 		if (quote_check(g_shell->cmd))
+ 		if (1)
 		{
 			lexer();
 			expander();
-			control = check();
-			if (control)
-				go_parser(env);
-			else
-				error_free(&(g_shell->lex_list)->lex);
-		} */
-		//free_loop(control);
+			// control = check();
+			// if (control)
+			// 	go_parser(env);
+			// else
+			// 	error_free(&(g_shell->lex_list)->lex);
+		}
+		free_loop(control);
 	}
 }
+
+/* 
+Lexer, kullanıcı girdisini alır ve onu daha küçük "token" parçalarına böler.
+Expander, bu tokenların içeriğini daha fazla işlemek için kullanılır ve özel karakterleri (örneğin, değişkenler veya wildcards) değerlerle değiştirir.
+Parser, genişletilmiş girdiyi bir komut ağacına çevirir, bu ağaç komutların mantıksal yapısını temsil eder.
+Bu üç süreç, kullanıcı girdisinin işlenmesi için birbirini tamamlayan adımlardır.
+Lexer, girdiyi düzenler ve daha anlamlı bir forma dönüştürür.
+Expander, lexer'ın çıkardığı tokenları daha fazla işleyerek genişletir.
+Parser, genişletilmiş girdiyi komutları temsil eden bir ağaca dönüştürür.
+Bu sıralı işlemler, kullanıcı girdisinin daha iyi anlaşılabilir ve yorumlanabilir bir yapıya dönüştürülmesini sağlar.
+*/
