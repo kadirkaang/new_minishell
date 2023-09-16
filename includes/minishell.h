@@ -11,6 +11,17 @@
 # include <readline/history.h>
 # include <sys/wait.h>
 
+
+# define EXEC 0
+# define HEREDOC 1
+# define PIPE 2
+# define GREAT 3
+# define GREATER 4
+# define LESS 5
+# define STDINN 0
+# define STDOUT 1
+# define STDERR 2
+
 // not :t_list libft den geliyor
 
 // enviroment değişkenler için
@@ -24,6 +35,18 @@ typedef struct s_lexer
 {
 	t_list	*lex;
 }				t_lexer;
+
+typedef struct s_parse
+{
+	char	*cmd;
+	char	**text;
+	int		type;
+	int		outfile;
+	int		infile;
+	int		fd;
+	int		pid;
+	int		control;
+}				t_parse;
 
 typedef struct s_shell
 {
@@ -40,6 +63,7 @@ extern t_shell	*g_shell;
 
 void	init_shell(t_shell **shell);
 void	get_env(char **env, t_shell **shell);
+void	free_env(void);
 void	free_str(char **str);
 void	signals_control(void);
 void	signals(int sig);
@@ -95,5 +119,40 @@ void	free_str1(char *str1, int flag);
 void	free_tmps(char *str, char *str2, char *str_tmp);
 void	_ft_exit_status(t_list *data, char *str1);
 int		ft_ultimatestrcmp(char *key, char *tmp, int i);
+
+// check
+int		check(void);
+int		quote_check(char *data);
+int		quote_len1(char *data);
+int		cmd_is_valid(t_lexer *lex_list);
+int		is_valid_other(char *a, char *b);
+int		print_error(void);
+
+//parser
+void	go_parser(char **env);
+int		ft_parser(void);
+void	parse_priority_order(t_lexer *lexer);
+void	free_node(t_list *node);
+void	free_tmp(t_list *tmp);
+char	*get_hard(t_list *lex);
+void	get_text(t_parse **parse, char *str, int j, int a);
+void	get_text_utils(char **tmp, t_parse ***parse, int j, int k);
+void	tokenize_type(t_parse **parse, const char *str);
+void	parse_init(void);
+t_parse	*parse_(int *j, t_list *new, int *i);
+void	free_parse(t_parse *parse);
+void	welcome_to_parse(t_list	*node, int i, int j, int flag);
+void	parse_else_if(t_parse **parse, t_list *new, char *str, int *j);
+void	parse_if(t_list *new, t_parse **parse);
+
+//create_files
+int		create_files(void);
+void	create_out_files(t_parse *data3, t_list *tmp3);
+char	*ft_strjoin2(char *s1, const char *s2);
+void	other_text_create(t_list *tmp3, t_list *tmp);
+void	other_out_files(t_list *tmp3, t_list *tmp);
+int		create_in_files(t_parse *data3, t_list *tmp3);
+int		create_in_files_other(t_parse *data, char *pwd);
+
 
 #endif

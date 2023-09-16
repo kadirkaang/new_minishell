@@ -20,7 +20,7 @@ void	get_env(char **env, t_shell **shell)
 	free((*shell)->env);
 	(*shell)->env = NULL;
 	
-    // satır satır key value prensibi ile splitleyip
+    // satir satir key value prensibi ile splitleyip
     // shell->env e tanımlanır.
     while (*env) 
 	{

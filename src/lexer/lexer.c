@@ -86,7 +86,6 @@ void	lex_list(char *cmd, t_lexer **lex_table)
 	{
 		new_node = ft_lstnew(str[i]);
 		ft_lstadd_back(&(*lex_table)->lex, new_node);
-        printf("lexer--%d--%s\n", i, str[i]);
 		i++;
 	}
 	free(str);

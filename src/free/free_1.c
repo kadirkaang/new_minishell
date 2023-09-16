@@ -1,6 +1,6 @@
 #include "../../includes/minishell.h"
 
-/* void	_free_env(t_list *tmp2)
+void	_free_env(t_list *tmp2)
 {
 	t_env	*tmp;
 
@@ -24,9 +24,9 @@
 		if (tmp2)
 			free(tmp2);
 	}
-} */
+}
 
-/* void	free_env(void)
+void	free_env(void)
 {
 	t_list	*tmp2;
 
@@ -35,11 +35,11 @@
 		_free_env(tmp2);
 	else if (g_shell->env && !g_shell->env->content)
 		free(g_shell->env);
-} */
+} 
 
 void	free_(void)
 {
-	// free_env();
+	free_env();
 	rl_clear_history();
 }
 

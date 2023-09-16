@@ -28,7 +28,7 @@ void	ft_tilde(char *tmp, char *str, t_list *data)
 		ft_tilde_build2(data, str);
 	free(key);
 }
-//data = full satir
+// data = full satir
 // tmp = o anki kelime
 // i = kelimenin o anki karakter konumu $
 int	check_env(t_list *data, char *tmp, int i)
@@ -100,7 +100,6 @@ void	get_env_to_lexlist(t_lexer **lex_list)
 			i++;
 		}
 		free_tmp_tmp2(tmp, tmp2);
-		printf("token--%s\n", (char *)(tokens->content));
 		(tokens) = (tokens)->next;
 	}
 }

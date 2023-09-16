@@ -2,19 +2,6 @@
 
 t_shell	*g_shell;
 
-int	print_cmd(char *cmd)
-{	
-	int i = 0;
-	while (cmd[i])
-	{	
-		printf("%c",cmd[i]);
-		i++;
-	}
-	printf("\n");
-	return (0);
-}
-
-
 void	total_free()
 {
 	free_loop(0);  //sadece cmd yi freelemek için
@@ -47,15 +34,15 @@ int	main(int ac, char **av, char **env)
 	while (1)
 	{
 		get_readline();
- 		if (1)
+ 		if (quote_check(g_shell->cmd))
 		{
 			lexer();
 			expander();
-			// control = check();
-			// if (control)
-			// 	go_parser(env);
+			control = check();
+			if (control)
+				go_parser(env);
 			// else
-			// 	error_free(&(g_shell->lex_list)->lex);
+			//error_free(&(g_shell->lex_list)->lex);
 		}
 		free_loop(control);
 	}

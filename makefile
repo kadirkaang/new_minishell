@@ -2,7 +2,7 @@
 NAME = minishell
 
 # FLAGS #
-CC = gcc
+CC = gcc -g
 CFLAGS = -Wall -Wextra -Werror
 RM = /bin/rm -rf
 
@@ -27,18 +27,21 @@ MAIN = main init_shell get_env signal
 LEXER = lexer lexer_utils
 FREE = free_1 free_2
 EXPANDER = expander expander_utils expander_utils2 expander_utils3 expander_utils4
-#BUILTINS = builtings cd echo env exit export ft_env_strdup pwd unset
+CHECK = check_utils check
+PARSER = parser parser_utils parser_utils_other welcome_to_parse
+CREATE_FILES = create_files create_files_utils
 #PIPES = pipes utils_pipe_fd utils_pipes error init_pipes
 #REDIR = redir_input redir_output redir_index
 #CMD = cmd exec init_cmd utils_cmd
 
-PLAIN_SRCS =	$(addsuffix .c, $(addprefix main/, $(MAIN)))			\
-				$(addsuffix .c, $(addprefix free/, $(FREE)))				\
-				$(addsuffix .c, $(addprefix lexer/, $(LEXER)))			\
+PLAIN_SRCS =	$(addsuffix .c, $(addprefix main/, $(MAIN)))					\
+				$(addsuffix .c, $(addprefix free/, $(FREE)))					\
+				$(addsuffix .c, $(addprefix lexer/, $(LEXER)))					\
 				$(addsuffix .c, $(addprefix expander/, $(EXPANDER)))			\
-				# $(addsuffix .c, $(addprefix builtings/, $(BUILTINS)))	\
-				#$(addsuffix .c, $(addprefix pipes/, $(PIPES)))			\
-				#$(addsuffix .c, $(addprefix redir/, $(REDIR)))			\
+				$(addsuffix .c, $(addprefix check/, $(CHECK)))					\
+				$(addsuffix .c, $(addprefix parser/, $(PARSER)))				\
+				$(addsuffix .c, $(addprefix create_files/, $(CREATE_FILES)))	\
+				#$(addsuffix .c, $(addprefix redir/, $(REDIR)))					\
 				#$(addsuffix .c, $(addprefix cmd/, $(CMD)))
 
 SRCS := $(addprefix $(SRCDIR), $(PLAIN_SRCS))
