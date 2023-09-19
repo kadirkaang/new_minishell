@@ -1,6 +1,5 @@
 #include "../../includes/minishell.h"
 
-
 void	parse_if(t_list *new, t_parse **parse)
 {
 	if (!new->next && g_shell->parse->content == NULL)
@@ -46,7 +45,6 @@ void	welcome_to_parse(t_list	*node, int i, int j, int flag)
 	while (new)
 	{
 		str = new->content;
-		printf("i==%d || str == %s\n", i , str);
 		if (i++ == 0 && !(str[0] == '<' && str[1] == '<'))
 			parse_if(new, &parse);
 		else if ((!ft_strcmp(str, "")) || (str[0] != '|' && (str[0] != '>'

@@ -30,7 +30,9 @@ EXPANDER = expander expander_utils expander_utils2 expander_utils3 expander_util
 CHECK = check_utils check
 PARSER = parser parser_utils parser_utils_other welcome_to_parse
 CREATE_FILES = create_files create_files_utils
-#PIPES = pipes utils_pipe_fd utils_pipes error init_pipes
+EXEC = exec_free exec_free2 exec dub2_fd run_execve run_execve1 single_or_multi_commands
+REDIR = heredoc heredoc_utils
+BUILTIN = builtin run_builtin run_builtin1 run_builtin2 run_builtin3
 #REDIR = redir_input redir_output redir_index
 #CMD = cmd exec init_cmd utils_cmd
 
@@ -41,8 +43,11 @@ PLAIN_SRCS =	$(addsuffix .c, $(addprefix main/, $(MAIN)))					\
 				$(addsuffix .c, $(addprefix check/, $(CHECK)))					\
 				$(addsuffix .c, $(addprefix parser/, $(PARSER)))				\
 				$(addsuffix .c, $(addprefix create_files/, $(CREATE_FILES)))	\
-				#$(addsuffix .c, $(addprefix redir/, $(REDIR)))					\
-				#$(addsuffix .c, $(addprefix cmd/, $(CMD)))
+				$(addsuffix .c, $(addprefix exec/, $(EXEC)))                    \
+				$(addsuffix .c, $(addprefix redir/, $(REDIR)))                	\
+				$(addsuffix .c, $(addprefix builtin/, $(BUILTIN)))                         	
+
+
 
 SRCS := $(addprefix $(SRCDIR), $(PLAIN_SRCS))
 OBJS := $(addprefix $(OBJDIR), $(PLAIN_SRCS:.c=.o))

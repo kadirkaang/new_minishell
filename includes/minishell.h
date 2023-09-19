@@ -144,6 +144,7 @@ void	free_parse(t_parse *parse);
 void	welcome_to_parse(t_list	*node, int i, int j, int flag);
 void	parse_else_if(t_parse **parse, t_list *new, char *str, int *j);
 void	parse_if(t_list *new, t_parse **parse);
+void	free_text(char **text);
 
 //create_files
 int		create_files(void);
@@ -154,5 +155,47 @@ void	other_out_files(t_list *tmp3, t_list *tmp);
 int		create_in_files(t_parse *data3, t_list *tmp3);
 int		create_in_files_other(t_parse *data, char *pwd);
 
+
+//exec 
+void	free_parser(void);
+void	execute_builtin_command(t_list *tmp, int *fd, int fd_index);
+int		is_builtin(t_list *tmp);
+void	exec_others(t_list *data, char **env, int *fd, int fd_index);
+int		single_or_multi_command(void);
+char	**get_args(t_parse *data, t_list *tmp);
+void	execve_child_free(char **str);
+void	exec_others(t_list *data, char **env, int *fd, int fd_index);
+void	run_execve(t_list *data1, char **env, int *fd, int fd_index);
+void	search_path(t_parse *data, int i);
+char	*_search_path(void);
+char	*search_command(char *cmd, char **value);
+void	run_command(char **env, t_list *tmp, int *fd, int fd_index);
+void	run_single_command(char **env, t_list *data);
+void	_multi_command(t_parse **data, t_list **tmp);
+void	exec(char **env);
+
+
+//pipe
+void	wait_all(void);
+void	switch_pipe(int **fd);
+void	clear_pipe(int *fd);
+void	create_dup(t_list *data1, int *fd, int fd_index);
+void	_create_dup(void);
+int		*create_pipe(void);
+
+
+
+void	loop_heredoc(void);
+void	set_heredoc(int sig);
+void	killer(int sig);
+
+//builtin
+void	exec_echo(t_parse *data);
+void	exec_export(t_parse *data);
+void	exec_cd1(char *str, t_parse *data);
+void	exec_unset(t_parse *data);
+void	exec_env(void);
+void	exec_pwd(t_parse *data);
+void	exec_cd(t_parse *data);
 
 #endif
