@@ -25,12 +25,12 @@ SRCDIR := src/
 # SRCS #
 MAIN = main init_shell get_env signal
 LEXER = lexer lexer_utils
-FREE = free_1 free_2
+FREE = free_1 free_2 free_3
 EXPANDER = expander expander_utils expander_utils2 expander_utils3 expander_utils4
 CHECK = check_utils check
 PARSER = parser parser_utils parser_utils_other welcome_to_parse
 CREATE_FILES = create_files create_files_utils
-EXEC = exec_free exec_free2 exec dub2_fd run_execve run_execve1 single_or_multi_commands
+EXEC = exec dub2_fd run_execve run_execve1 single_or_multi_commands
 REDIR = heredoc heredoc_utils
 BUILTIN = builtin run_builtin run_builtin1 run_builtin2 run_builtin3
 #REDIR = redir_input redir_output redir_index

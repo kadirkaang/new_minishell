@@ -2,22 +2,12 @@
 
 t_shell	*g_shell;
 
-void	total_free()
-{
-	free_loop(0);  //sadece cmd yi freelemek için
-	free_(); // enviroment ve history yi freelemek için
-	free(g_shell->lex_list);
-	free(g_shell);
-	exit(1);
-}
-
 void	get_readline(void)
 {
 	g_shell->cmd = readline("minishell-$ ");
 	if (!g_shell->cmd)
 		total_free();
 	add_history(g_shell->cmd);
-	// print_cmd(g_shell->cmd);
 }
 
 int	main(int ac, char **av, char **env)
@@ -41,8 +31,8 @@ int	main(int ac, char **av, char **env)
 			control = check();
 			if (control)
 				go_parser(env);
-			// else
-			//error_free(&(g_shell->lex_list)->lex);
+			else
+			error_free(&(g_shell->lex_list)->lex);
 		}
 		free_loop(control);
 	}

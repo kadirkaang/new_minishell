@@ -49,19 +49,19 @@ void	free_loop(int control)
 	if (g_shell->cmd)
 		free(g_shell->cmd);
 
-/* 	if (control)
+	if (control)
 	{
 		if (g_shell->parse)
 			free_parser();
-	} */
-/* 	if (g_shell->heredoc)
+	} 
+	if (g_shell->heredoc)
 	{
 		free(g_shell->heredoc);
 		g_shell->heredoc = NULL;
-	} */
+	} 
 
 }
-/* 
+
 void	execve_child_free(char **str)
 {
 	free_();
@@ -69,4 +69,4 @@ void	execve_child_free(char **str)
 	free_text(str);
 	free(g_shell->lex_list);
 	free(g_shell);
-} */
+}

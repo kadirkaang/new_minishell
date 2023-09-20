@@ -72,6 +72,8 @@ void	get_readline(void);
 //free
 void	free_(void);
 void	free_loop(int control);
+void	total_free();
+void	error_free(t_list **node);
 
 //lexer
 void	lexer(void);
@@ -197,5 +199,6 @@ void	exec_unset(t_parse *data);
 void	exec_env(void);
 void	exec_pwd(t_parse *data);
 void	exec_cd(t_parse *data);
+char	*get_home(void);
 
 #endif

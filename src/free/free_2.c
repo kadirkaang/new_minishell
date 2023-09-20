@@ -1,4 +1,4 @@
-/* #include "../../includes/minishell.h"
+#include "../../includes/minishell.h"
 
 void	free_lexer(void)
 {
@@ -72,6 +72,8 @@ void	free_parser(void)
 		free(g_shell->parse);
 }
 
+
+// uygun bir yere taşı
 int	*create_pipe(void)
 {
 	int	index;
@@ -83,4 +85,4 @@ int	*create_pipe(void)
 		fd[index] = 0;
 	return (fd);
 }
- */
+ 

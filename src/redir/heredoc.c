@@ -78,6 +78,8 @@ void	get_input(t_list *tmp, int *fd)
 	}
 }
 
+// fd[1] = yazma ucu && fd[0] = okuma ucu
+
 void	heredoc(t_list *tmp)
 {
 	int		fd[2];
