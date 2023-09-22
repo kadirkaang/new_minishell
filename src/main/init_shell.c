@@ -1,4 +1,5 @@
 #include "../../includes/minishell.h"
+#include <stdlib.h>
 
 void	init_shell(t_shell **shell)
 {

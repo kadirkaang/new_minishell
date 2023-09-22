@@ -1,4 +1,7 @@
 #include "../../includes/minishell.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <readline/readline.h>
 
 void	_free_env(t_list *tmp2)
 {

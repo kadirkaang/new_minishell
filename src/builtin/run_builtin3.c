@@ -1,4 +1,6 @@
 #include "../../includes/minishell.h"
+#include <unistd.h>
+#include <stdio.h>
 
 void	exec_pwd(t_parse *data)
 {

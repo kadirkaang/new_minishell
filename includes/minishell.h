@@ -2,15 +2,6 @@
 # define MINISHELL_H
 
 # include "../libft/libft.h"
-# include <unistd.h>
-# include <stdlib.h>
-# include <signal.h>
-# include <stdio.h>
-# include <fcntl.h>
-# include <readline/readline.h>
-# include <readline/history.h>
-# include <sys/wait.h>
-
 
 # define EXEC 0
 # define HEREDOC 1

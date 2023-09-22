@@ -1,4 +1,5 @@
 #include "../../includes/minishell.h"
+#include <stdlib.h>
 
 void	free_tmp_tmp2(char *tmp, char *tmp2)
 {

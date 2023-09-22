@@ -1,4 +1,8 @@
 #include "../../includes/minishell.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <readline/readline.h>
+#include <readline/history.h>
 
 t_shell	*g_shell;
 

@@ -1,4 +1,6 @@
 #include "../../includes/minishell.h"
+#include <stdlib.h>
+#include <unistd.h>
 
 void	edit_env(t_list *node, char *key, char *value)
 {

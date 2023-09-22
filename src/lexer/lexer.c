@@ -1,4 +1,5 @@
 #include "../../includes/minishell.h"
+#include <stdlib.h>
 
 int	cmd_build_other(int *i, int *len, char *cmd)
 {

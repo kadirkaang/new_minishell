@@ -1,5 +1,5 @@
 #include "../../includes/minishell.h"
-
+#include <stdlib.h>
 
 char	*get_hard(t_list *lex) // duplicate yap ismini 
 {

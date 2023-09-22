@@ -1,5 +1,5 @@
-
 #include "../../includes/minishell.h"
+#include <stdlib.h>
 
 void	free_str(char **str)
 {

@@ -1,4 +1,6 @@
 #include "../../includes/minishell.h"
+#include <unistd.h>
+#include <stdlib.h>
 
 void	_create_dup(void)
 {

@@ -1,4 +1,5 @@
 #include "../../includes/minishell.h"
+#include <stdlib.h>
 
 void	parse_if(t_list *new, t_parse **parse)
 {

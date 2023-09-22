@@ -1,4 +1,7 @@
 #include "../../includes/minishell.h"
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
 
 char	*search_command(char *cmd, char **value)
 {

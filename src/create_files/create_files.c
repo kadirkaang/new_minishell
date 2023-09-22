@@ -1,4 +1,7 @@
 #include "../../includes/minishell.h"
+#include <unistd.h>
+#include <fcntl.h>
+#include <stdlib.h>
 
 void	other_out_files(t_list *tmp3, t_list *tmp)
 {

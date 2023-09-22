@@ -1,4 +1,5 @@
 #include "../../includes/minishell.h"
+#include <stdlib.h>
 
 char	**get_args(t_parse *data, t_list *tmp)
 {

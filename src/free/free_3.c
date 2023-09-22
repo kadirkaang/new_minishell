@@ -1,5 +1,5 @@
-
 #include "../../includes/minishell.h"
+#include <stdlib.h>
 
 void	error_free(t_list **node)
 {

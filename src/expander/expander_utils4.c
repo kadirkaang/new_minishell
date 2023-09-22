@@ -1,4 +1,5 @@
 #include "../../includes/minishell.h"
+#include <stdlib.h>
 
 int	ft_ultimatestrcmp(char *key, char *tmp, int i)
 {

@@ -1,4 +1,5 @@
 #include "../../includes/minishell.h"
+#include <stdlib.h>
 
 void	quote_build(char **tmp, char **data, int *i, int *j)
 {

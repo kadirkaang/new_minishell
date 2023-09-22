@@ -1,4 +1,5 @@
 #include "../../includes/minishell.h"
+#include <stdio.h>
 
 int	quote_check(char *data)
 {

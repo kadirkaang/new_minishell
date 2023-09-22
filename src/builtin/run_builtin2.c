@@ -1,4 +1,7 @@
 #include "../../includes/minishell.h"
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
 
 void	change_old(char *str)
 {

@@ -1,4 +1,7 @@
 #include "../../includes/minishell.h"
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
 
 void	run_command(char **env, t_list *tmp, int *fd, int fd_index)
 {

@@ -1,4 +1,6 @@
 #include "../../includes/minishell.h"
+#include <stdlib.h>
+#include <unistd.h>
 
 void	killer(int sig)
 {

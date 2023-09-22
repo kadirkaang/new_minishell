@@ -1,4 +1,5 @@
 #include "../../includes/minishell.h"
+#include <unistd.h>
 
 void	run_echo(t_parse *data, int *i)
 {

@@ -1,5 +1,8 @@
-
 #include "../../includes/minishell.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
 
 int	create_in_files_other(t_parse *data, char *pwd)
 {

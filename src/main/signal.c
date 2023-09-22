@@ -1,4 +1,8 @@
 #include "../../includes/minishell.h"
+#include <unistd.h>
+#include <signal.h>
+#include <stdio.h>
+#include <readline/readline.h>
 
 void	signals(int sig)
 {

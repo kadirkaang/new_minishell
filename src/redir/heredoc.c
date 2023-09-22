@@ -1,4 +1,9 @@
 #include "../../includes/minishell.h"
+#include <unistd.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <readline/readline.h>
 
 char	*add_char(char *str, char a)
 {

@@ -1,4 +1,5 @@
 #include "../../includes/minishell.h"
+#include <stdlib.h>
 
 void	_erase_after(t_list *data, char *str, char *tmp, int i)
 {

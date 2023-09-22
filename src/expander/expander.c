@@ -1,4 +1,5 @@
 #include "../../includes/minishell.h"
+#include <stdlib.h>
 
 void	ft_tilde(char *tmp, char *str, t_list *data)
 {
