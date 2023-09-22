@@ -14,12 +14,20 @@ void	_create_dup(void)
 	close(new_fd[0]);
 }
 
+void	yaz(int fd)
+{
+	write(fd, g_shell->heredoc, ft_strlen(g_shell->heredoc));
+	close(fd);
+}
+
 void	create_dup(t_list *data1, int *fd, int fd_index)
 {
 	t_parse	*data;
 	t_parse	*tmp;
+	t_parse	*tmp2;
 
 	tmp = NULL;
+	tmp2 = NULL;
 	if (data1->next)
 		tmp = data1->next->content;
 	data = data1->content;
@@ -34,7 +42,11 @@ void	create_dup(t_list *data1, int *fd, int fd_index)
 	else if (data->infile > STDERR && data1->next->next)
 		dup2(fd[fd_index + 1], 1);
 	else if (data->type == HEREDOC && data1->next->next)
+	{
+		tmp2 = data1->next->next->content;
+		yaz(tmp2->fd);
 		dup2(fd[fd_index + 1], 1);
+	}
 	else if (data1->next && fd && tmp->cmd)
 		dup2(fd[fd_index + 1], 1);
 	if (fd_index >= 0)

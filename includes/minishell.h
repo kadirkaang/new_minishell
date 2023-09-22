@@ -2,6 +2,8 @@
 # define MINISHELL_H
 
 # include "../libft/libft.h"
+#include <stdio.h>
+
 
 # define EXEC 0
 # define HEREDOC 1

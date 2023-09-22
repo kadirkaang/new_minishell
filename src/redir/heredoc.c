@@ -89,11 +89,11 @@ void	heredoc(t_list *tmp)
 {
 	int		fd[2];
 	int		id;
-	t_parse *tmp2 = tmp->next->content;
+	// t_parse *tmp2 = tmp->next->content;
 
 	pipe(fd);
-	close(fd[1]);
-	fd[1] = tmp2->outfile;
+	// close(fd[1]);
+	// fd[1] = tmp2->outfile;
 	signal(SIGINT, set_heredoc);
 	id = fork();
 	if (id == 0)
