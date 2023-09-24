@@ -12,7 +12,6 @@ char	*search_command(char *cmd, char **value)
 
 	tmp = *value;
 	i = 0;
-	(void)cmd;
 	while (*tmp && *tmp != ':')
 	{
 		i++;
