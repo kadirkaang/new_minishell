@@ -28,16 +28,14 @@ int	main(int ac, char **av, char **env)
 	while (1)
 	{
 		get_readline();
- 		if (quote_check(g_shell->cmd))
-		{
-			lexer();
-			expander();
-			control = check();
-			if (control)
-				go_parser(env);
-			else
+		g_shell->cmd  = quote_check(g_shell->cmd);
+		lexer();
+		expander();
+		control = check();
+		if (control)
+			go_parser(env);
+		else
 			error_free(&(g_shell->lex_list)->lex);
-		}
 		free_loop(control);
 	}
 }

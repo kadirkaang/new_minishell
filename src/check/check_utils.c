@@ -1,34 +1,80 @@
 #include "../../includes/minishell.h"
 #include <stdio.h>
+#include <stdlib.h>
 
-int	quote_check(char *data)
-{
-	int	x;
+void remove_character(char *str, char c) {
+    int len = ft_strlen(str);
+    int i;
+	int j;
 
-	x = 0;
-	x = quote_len1(data);
-	if (x % 2 != 0)
+	j = 0;
+	i = -1;
+	while (i++ < len)
 	{
-		printf("minishell: quote error\n");
-		return (0);
+		if (str[i] != c)
+			str[j++] = str[i];
 	}
-	return (1);
+    str[j] = '\0';
 }
 
-int	quote_len1(char *data)
+void	remove_at_index(char *data, int index)
 {
-	int	j;
-	int	i;
+	int	len;
+
+	len = ft_strlen(data);
+	while (index < len - 1)
+	{
+		data[index] = data[index + 1];
+		index++;
+	}
+	data[index] = '\0';
+
+}
+
+void	quote_control1(char *data)
+{
+	int		pos[2];
+	int		i;
+	char	c;
 
 	i = 0;
-	j = 0;
-	while (data[i])
+	pos[0] = 0;
+	pos[1] = 0;
+	while (data[i] != '\0')
 	{
-		if (data[i] == '\"' || data[i] == '\'')
-			j++;
+		if (data[i] == '\'' || data[i] == '\"')
+		{
+			c = data[i];
+			if (pos[0] == 0)
+			{
+				pos[0] = i;
+				i++;
+				while (data[i] != '\0')
+				{
+					if (data[i] == c)
+					{
+						pos[1] = i;
+						i++;
+						break;
+					}
+					i++;
+				}
+				if (pos[1] == 0)
+					remove_at_index(data, pos[0]);
+				else
+					quote_control1(&data[i]);
+			}
+		}
 		i++;
 	}
-	return (j);
+}
+
+char	*quote_check(char *data)
+{	
+	remove_character(data, 92);
+	remove_character(data, 59);
+	quote_control1(data);
+	return (data);
 }
 
 int	print_error(void)

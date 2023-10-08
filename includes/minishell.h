@@ -117,8 +117,8 @@ int		ft_ultimatestrcmp(char *key, char *tmp, int i);
 
 // check
 int		check(void);
-int		quote_check(char *data);
-int		quote_len1(char *data);
+char	*quote_check(char *data);
+int		*quote_len1(char *data);
 int		cmd_is_valid(t_lexer *lex_list);
 int		is_valid_other(char *a, char *b);
 int		print_error(void);
