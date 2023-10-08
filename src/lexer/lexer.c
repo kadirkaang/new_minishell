@@ -68,19 +68,49 @@ char	*cmd_build(char *cmd)
 	return (cmd);
 }
 
+char	*cmd_organize(char *cmd)
+{
+	char	c;
+	int		i;
+	int		pos;
+
+	i = 0;
+	pos = 0;
+	while (cmd[i])
+	{
+		if (cmd[i] == '\'' || cmd[i] == '\"')
+		{
+			c = cmd[i++];
+			while (cmd[i])
+			{
+				if (cmd[i] == c)
+					break;
+				i++;
+			}
+		}
+		while (cmd[i] != 32 && cmd[i + 1])
+			i++;
+		if (cmd[i] == 32 && pos == 0)
+			cmd[i] = 2;
+		i++;
+	}
+	return (cmd);
+}
+
 void	lex_list(char *cmd, t_lexer **lex_table)
 {
 	char	**str;
 	char	*str2;
-	char	*data;
+	// char	*data;
 	int		i;
 	t_list	*new_node;
 
 	i = 0;
-	data = cmd_build(cmd);
-	str2 = set_build(data);
+	// data = cmd_build(cmd);
+	// str2 = set_build(data);
+	str2 = cmd_organize(cmd);
 	str = ft_split(str2, 2);
-	free(str2);
+	// free(str2);
 	if (!str)
 		return ;
 	while (str[i])
