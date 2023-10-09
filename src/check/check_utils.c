@@ -60,7 +60,10 @@ void	quote_control1(char *data)
 					i++;
 				}
 				if (pos[1] == 0)
+				{
 					remove_at_index(data, pos[0]);
+					quote_control1(data);
+				}
 				else
 					quote_control1(&data[i]);
 			}
